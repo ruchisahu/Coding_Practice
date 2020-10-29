@@ -1,6 +1,7 @@
 package Chap_7;
 
 import java.util.Arrays;
+import java.util.Random;
 
 import util.util;
 
@@ -29,12 +30,35 @@ public class QuickSort {
     return i+1;
     }
 		
-	
+	//random pivot
+	public static int partitionRan(int[] A, int p, int r) {
+		// permute A[r] with a random element
+		Random rand = null;
+		int idx = rand.nextInt(r - p + 1) + p;
+		util.swap(A,  idx, r);
+		
+		// choose a pivot
+		int pivVal = A[r];
+		
+		// keep track of top idx of filtered vals
+		int q = p;
+		
+		// do the filtering
+		for (int i = p; i < r; i++) {
+			if (A[i] <= pivVal) {
+				util.swap(A, i, q);
+				q++;
+			}
+		}
+		util.swap(A, r, q);
+		return q;
+	}
 
 	public static void main(String[] args) {
-		//int[] A = new int[10];
-	//	util.fillWithRandomInts(A);
-		int[] A= {2,8,7,1,3,5,6,4};
+		int[] A = new int[10];
+		util.fillWithRandomInts(A);
+		//int[] A= {2,8,7,1,3,5,6,4};
+		//int[] A= {4,3,2,1};
 		System.out.println(Arrays.toString(A));
         int r=A.length-1;
         int p=0;
