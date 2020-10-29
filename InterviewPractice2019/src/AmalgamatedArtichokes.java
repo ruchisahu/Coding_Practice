@@ -1,0 +1,36 @@
+
+public class AmalgamatedArtichokes
+{
+static double maxprice(int p,int a,int b,int c,int d,int n)
+{
+	
+	double result=0.0;
+	
+	double max=function(p,a,b,c,d, n,1);
+	System.out.printf("%.7f\n", max);
+	for(int i=2;i<=n;i++)
+	{
+		double price=function(p,a,b,c,d, n,i);
+		System.out.printf("%.7f\n", price);
+		double diff=max-price;
+		if(diff > result)
+			result=diff;
+		if(price>max)
+			max=price;
+		
+	}
+	System.out.printf("%.7f\n", result);
+	return result;
+}
+public static double function(int p,int a,int b,int c,int d,int n,int k)
+{
+	return p*(Math.sin(a*k+b)+Math.cos(c*k+d)+2);
+}
+	public static void main(String[] args) 
+	{
+		System.out.println("hi");
+		System.out.println(maxprice(42,1,23,4,8,10));
+
+	}
+
+}

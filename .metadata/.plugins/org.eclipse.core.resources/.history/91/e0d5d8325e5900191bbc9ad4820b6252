@@ -1,0 +1,19 @@
+
+public class stringMultiply
+{
+    public static String multiply(String num1, String num2) 
+    {
+       int n1=Integer.valueOf(num1);
+       int n2=Integer.valueOf(num2);
+       System.out.println(n1*n2);
+       return "0"; 
+    }
+
+	public static void main(String[] args)
+	{
+		String num1="123";
+		String num2="456";
+		System.out.println(multiply(num1,num2)) ;
+	}
+
+}

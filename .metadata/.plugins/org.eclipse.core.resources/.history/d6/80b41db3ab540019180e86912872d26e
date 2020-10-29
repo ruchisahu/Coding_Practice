@@ -1,0 +1,24 @@
+
+public class Decoding 
+{
+
+	 public static int numDecodings(String s) 
+	    {
+	        int[] c=new int[26];
+	        for(int i=0;i<26;i++)
+	        {
+	            c[i]=i+1;
+	            System.out.println(c[i]);
+	        }
+	        return 0;
+	        
+	    }
+	public static void main(String[] args) 
+	{
+		// TODO Auto-generated method stub
+		String s="12";
+		numDecodings(s) ;
+
+	}
+
+}

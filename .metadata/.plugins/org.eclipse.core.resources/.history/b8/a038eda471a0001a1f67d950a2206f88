@@ -1,0 +1,14 @@
+
+/*
+ Given A, B, C, find any string of maximum length that can be created such that no 3 consecutive characters are same.
+  There can be at max A 'a', B 'b' and C 'c'.
+ */
+ 
+public class Longeststring {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

@@ -1,0 +1,28 @@
+import java.util.*;
+
+/*
+ Given A, B, C, find any string of maximum length that can be created such that no 3 consecutive characters are same.
+  There can be at max A 'a', B 'b' and C 'c'.
+  
+  Input: A = 1, B = 1, C = 6
+Output: "ccbccacc"
+ */
+ 
+public class Longeststring {
+	public static String findString(Map<Character, Integer> map)
+	{
+		
+	return null;
+	}
+
+	public static void main(String[] args)
+	{
+		Map<Character, Integer> map = new HashMap<>();
+		map.put('a', 1);
+		map.put('b', 1);
+		map.put('c', 6);
+		System.out.println(findString(map));
+
+	}
+
+}

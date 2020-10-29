@@ -1,0 +1,89 @@
+package robertSedwick;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import edu.princeton.cs.algs4.In;
+
+public class EdgeWeightedGraph implements EdgeWeightedGraphInterface{
+	private final int V;
+	private int E;
+	private final List<Edge>[] adj;
+
+	public EdgeWeightedGraph(int V) {
+		this.V=V;
+		adj= (List<Edge>[])new List[V];		
+		for(int v=0;v<V;v++) {
+			adj[v]=new ArrayList<Edge>();
+		}
+	}
+	
+	 public EdgeWeightedGraph(In in) {
+	        this(in.readInt());
+	        int edges = in.readInt();
+
+	        if (edges < 0) {
+	            throw new IllegalArgumentException("Number of edges must be nonnegative");
+	        }
+
+	        for(int i = 0; i < edges; i++) {
+	            int v = in.readInt();
+	            int u = in.readInt();
+	            double weight = in.readDouble();
+
+	            Edge edge = new Edge(v,u, weight);
+	            addEdge(edge);
+	        }
+	    }
+
+	@Override
+	public int vertices() {
+		// TODO Auto-generated method stub
+		return V;
+	}
+
+	@Override
+	public int edgesCount() {
+		// TODO Auto-generated method stub
+		return E;
+	}
+
+	@Override
+	public void addEdge(Edge edge) {
+		int v=edge.either();
+		int u=edge.other(v);
+		adj[v].add(edge);
+		adj[u].add(edge);
+		E++;
+		
+		
+		
+		
+	}
+
+	@Override
+	public Iterable<Edge> adjacent(int v) {
+		return adj[v];
+	}
+
+	@Override
+	public Iterable<Edge> edges() {
+		 List<Edge> edges = new ArrayList<>();
+
+	        for(int v= 0; v < V; v++) {
+	            for(Edge edge : adj[v]) {
+	                if (edge.other(v) > v) {
+	                    edges.add(edge);
+	                }
+	            }
+	        }
+
+	        return edges;
+	}
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

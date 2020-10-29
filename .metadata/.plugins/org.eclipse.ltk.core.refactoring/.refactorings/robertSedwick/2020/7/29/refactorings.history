@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename type &apos;robertSedwick.DFS_detectCycleANDTwocolor&apos; to &apos;DFS_detectCycle&apos;&#x0D;&#x0A;- Original project: &apos;robertSedwick&apos;&#x0D;&#x0A;- Original element: &apos;robertSedwick.DFS_detectCycleANDTwocolor&apos;&#x0D;&#x0A;- Renamed element: &apos;robertSedwick.DFS_detectCycle&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" description="Rename type &apos;DFS_detectCycleANDTwocolor&apos;" flags="589830" id="org.eclipse.jdt.ui.rename.type" input="/src&lt;robertSedwick{DFS_detectCycleANDTwocolor.java[DFS_detectCycleANDTwocolor" matchStrategy="1" name="DFS_detectCycle" qualified="false" references="true" similarDeclarations="false" stamp="1595005015235" textual="false" version="1.0"/>
+</session>

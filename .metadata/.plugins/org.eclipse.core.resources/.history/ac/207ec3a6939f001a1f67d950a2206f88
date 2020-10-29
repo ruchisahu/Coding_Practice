@@ -1,0 +1,109 @@
+/*
+ * 
+ * Given a 2D grid, each cell is either a zombie 1 or a human 0. Zombies can turn adjacent (up/down/left/right) human beings into zombies every hour. Find out how many hours does it take to infect all humans?
+
+Example:
+
+Input:
+[[0, 1, 1, 0, 1],
+ [0, 1, 0, 1, 0],
+ [0, 0, 0, 0, 1],
+ [0, 1, 0, 0, 0]]
+
+Output: 2
+
+Explanation:
+At the end of the 1st hour, the status of the grid:
+[[1, 1, 1, 1, 1],
+ [1, 1, 1, 1, 1],
+ [0, 1, 0, 1, 1],
+ [1, 1, 1, 0, 1]]
+
+At the end of the 2nd hour, the status of the grid:
+[[1, 1, 1, 1, 1],
+ [1, 1, 1, 1, 1],
+ [1, 1, 1, 1, 1],
+ [1, 1, 1, 1, 1]]
+*/
+import java.util.*;
+public class ZombieInMatrix {
+
+	public static int minHours(int rows, int columns, int[][] grid)  //need to test with List<List<Integer>> grid
+	{
+		int[][] grid2=new int[grid.length][grid[0].length];
+		int count=0;
+		while(!notAllZombie(grid))
+		{
+			for(int i=0;i <grid.length;i++)
+			{
+				for(int j=0;j<grid[0].length;j++)
+				{
+					grid2[i][j]=grid[i][j];
+				}
+			}
+			
+			for(int i=0;i <grid.length;i++)
+			{
+				for(int j=0;j<grid[0].length;j++)
+				{
+					if(grid[i][j]==1)
+					{
+						if(i>0)
+						{
+							grid2[i-1][j]=1;
+						}
+						if(i<grid.length-1)
+						{
+							grid2[i+1][j]=1;
+						}
+						
+						if(j<grid[0].length-1)
+						{
+						grid2[i][j+1]=1;
+						}
+						
+						if(j>0)
+						{
+						grid2[i][j-1]=1;
+						}
+					}
+				}
+			}
+			for(int i=0;i <grid.length;i++)
+			{
+				for(int j=0;j<grid[0].length;j++)
+				{
+					grid[i][j]=grid2[i][j];
+				}
+			}
+			count++;
+				
+			
+				
+		}
+		return count;
+	}
+	private static boolean notAllZombie(int[][] grid) 
+	{
+		for(int i=0;i <grid.length;i++)
+		{
+			for(int j=0;j<grid[0].length;j++)
+			{
+				if(grid[i][j]!=1)
+				{
+					return false;
+				}
+			}
+		}
+		
+		return true;
+	}
+	public static void main(String[] args) {
+		
+		int[][] grid = { { 0, 1, 1, 0, 1 }, { 0, 1, 0, 1, 0 }, { 0, 0, 0, 0, 1 }, { 0, 1, 0, 0, 0 } };
+		
+		minHours(grid.length, grid[0].length,grid);
+
+	}
+
+}

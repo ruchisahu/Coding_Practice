@@ -1,0 +1,54 @@
+package Chap_8;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+
+import util.util;
+
+//need to  work on bucket size
+public class BucketSort {
+
+	public static void main(String[] args) {
+		System.out.println("\nRadix Sort test");
+		int[] array = new int[10];
+		util.fillWithRandomInts(array);
+		int size=array.length;
+		System.out.println(Arrays.toString(array));
+		Sort(array,size);
+		System.out.println(Arrays.toString(array));
+
+	}
+
+	
+	private static void Sort(int[] array, int n) {
+		if(n<=0)
+			return;
+		
+		ArrayList<Integer>[] bucket=new ArrayList[n];
+		
+		for(int i=0;i<n;i++) {
+			bucket[i]=new ArrayList<Integer>();
+		}
+		
+		for(int i=0;i<n;i++) {
+			int bucketIndex=array[i]*n;
+			 bucket[bucketIndex].add(array[i]);
+			
+		}
+		//sort each bucket
+		for(int i=0;i<n;i++){
+			Collections.sort(bucket[i]);
+		}
+		
+		// Get the sorted array
+	    int index = 0;
+	    for (int i = 0; i < n; i++) {
+	      for (int j = 0, size = bucket[i].size(); j < size; j++) {
+	        array[index++] = bucket[i].get(j);
+	      }
+	    }
+		
+	}
+
+}

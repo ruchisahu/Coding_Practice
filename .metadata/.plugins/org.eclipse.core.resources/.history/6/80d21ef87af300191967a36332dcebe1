@@ -1,0 +1,26 @@
+
+public class TreasureIsland 
+{
+	public static int treasureIsland(char[][] island) 
+	{
+		if (island == null || island.length == 0) return 0;
+		return 0;
+	}
+
+	public static void main(String[] args)
+	{
+		
+		char[][] island = new char[][]{
+			{'O', 'O', 'O', 'O'},
+			{'D', 'O', 'D', 'O'},
+			{'O', 'O', 'O', 'O'},
+			{'X', 'D', 'D', 'O'}
+	};
+	int result = treasureIsland(island);
+	System.out.println(result);
+    }
+}
+
+	
+
+

@@ -1,0 +1,66 @@
+package Chap_2;
+
+import java.util.Arrays;
+
+public class MergeSort {
+	public static void Merge_Sort(int[] A, int p, int r){
+		if(p<r) {
+			int q = (int) Math.floor((p + r) / 2);
+		
+		Merge_Sort(A,p,q);
+		Merge_Sort(A,q+1,r);
+		Merge(A,p,q,r);
+		}
+	}
+
+	private static void Merge(int[] A,int p, int q, int r) {
+		
+		int n1 = q - p + 1;  // Number of elements to be sorted in leftVector
+	    int n2 = r - q;      // Number of elements to be sorted in rightVector
+	  //  int[] L = Arrays.copyOfRange(A, p, q + 1);
+	//	int[] R = Arrays.copyOfRange(A, q + 1, r + 1);
+	    int L[] = new int[n1+1];
+        int R[] = new int[n2+1];
+		for (int i = 0; i < n1; i++)
+	    {
+	        L[i] = A[p + i];
+	    }
+	    
+	    for (int j = 0; j < n2; j++)
+	    {
+	        R[j] = A[q + j + 1];
+	    }
+		int i = 0;
+	    int j = 0;
+	    
+	    for (int k = p; k <= r; k++)
+	    {
+	        if (L[i] <= R[j])
+	        {
+	            A[k] = L[i];
+	            i++;
+	        }
+	        else
+	        {
+	            A[k] = R[j];
+	            j++;
+	        }
+	    }
+	    
+	    
+		
+	}
+
+	public static void main(String[] args) {
+		int[] A= {4,2,5,1,7,9,1};
+		int p=0;
+		int r=A.length-1;
+		
+		Merge_Sort(A,p,r);
+		for(int i=0;i<=r;i++) {
+			System.out.println(A[i]);
+		}
+
+	}
+
+}

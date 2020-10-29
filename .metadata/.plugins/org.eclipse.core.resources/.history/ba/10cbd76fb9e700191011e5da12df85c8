@@ -1,0 +1,33 @@
+
+public  class mincheck 
+{
+	static int mincheck1(int[]a, int n, int s1,int s2)
+	{
+		if(n<0)
+			return Math.abs(s1-s2);
+		return Math.min(mincheck1(a,n-1,s1+a[n],s2),mincheck1(a,n-1,s1,s2+a[n]));
+		
+	}
+	
+	static boolean samecheck1(int[]a, int n, int s1,int s2)
+	{
+		if(n<0)
+		{
+			if(s1==s2)
+				return true;
+		}
+		 mincheck1(a,n-1,s1+a[n],s2);
+				 mincheck1(a,n-1,s1,s2+a[n]);
+		 return false;
+		
+	}
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		int[] a= {1,6,11,5};
+		int n=a.length;
+		System.out.println(mincheck1(a,n-1,0,0 ));
+		System.out.println(samecheck1(a,n-1,0,0 ));
+
+	}
+
+}

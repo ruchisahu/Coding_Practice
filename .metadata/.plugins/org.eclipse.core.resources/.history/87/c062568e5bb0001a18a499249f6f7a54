@@ -1,0 +1,16 @@
+
+public class RemoveNthNode19 {
+	 public static ListNode removeNthFromEnd(ListNode head, int n)
+	    {
+			return head;
+		 
+	    }
+
+	public static void main(String[] args) {
+		ListNode head = ListSample.createEvenNodeList();
+		removeNthFromEnd(head, 2);
+		
+
+	}
+
+}

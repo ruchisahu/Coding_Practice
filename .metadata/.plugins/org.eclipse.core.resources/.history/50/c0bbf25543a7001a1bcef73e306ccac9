@@ -1,0 +1,27 @@
+import java.util.Arrays;
+
+public class TaskScheduler621 {
+public static int leastInterval(char[] tasks, int n) 
+{
+	int[] counter = new int[26];
+    int max = 0;
+    int maxCount = 0;
+    for(char task : tasks) 
+    {
+        counter[task - 'A']++;
+    }
+    Arrays.sort(counter);
+    maxCount=counter[tasks[tasks.length-1] - 'A'] - 1;
+    System.out.println(maxCount);
+	return 0;
+        
+    }
+
+	public static void main(String[] args) {
+		char[] tasks= {'A','A','A','B','B','B'};
+				int n=2;
+		leastInterval(tasks,n);
+
+	}
+
+}

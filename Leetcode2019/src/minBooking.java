@@ -1,0 +1,39 @@
+import java.util.ArrayList;
+
+public class minBooking
+{
+	public static boolean hotel(ArrayList<Integer> arrive, ArrayList<Integer> depart, int K)
+	{
+		int count=1;
+		for(int i=0;i<arrive.size()-1;i++)
+		{
+			if(arrive.get(i+1)<depart.get(i))
+			{
+				count++;
+			}
+			System.out.println(count);
+		}
+		if(count>K)
+			return false;
+		return true;
+    }
+
+
+	public static void main(String[] args) 
+	{
+		ArrayList<Integer> arrive=new ArrayList<Integer>();
+		ArrayList<Integer> depart=new ArrayList<Integer>();
+		arrive.add(1);
+		arrive.add(5);
+		arrive.add(7);
+		depart.add(3);
+		depart.add(6);
+		depart.add(8);
+		
+		int K=2;
+		System.out.println(hotel(arrive, depart, K));
+		// TODO Auto-generated method stub
+
+	}
+
+}

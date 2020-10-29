@@ -1,0 +1,38 @@
+
+public class wordsearch {
+
+	public static void main(String[] args)
+	{
+		char[][] board= {{'A','B','C','E'},{'S','F','C','S'},{'A','D','E','E'}};
+		String word="AB";
+			System.out.println(exist(board,word));
+	}
+		 public static boolean exist(char[][] board, String word) 
+		    {
+			 if(word==null)return false;
+			 char[] w=word.toCharArray();
+			 for(int n=0;n<board.length;n++)
+			 {
+				 for(int m=0;m<board[n].length;m++)
+				 {
+					 if(check(board,n,m,w,0))
+						 return true;
+				 }
+			 }
+		        return false;
+		    }
+		 
+		 public static boolean check(char[][]board,int n,int m,char[] w,int i)
+		 {
+			 if(i==w.length)return true;
+			 if(m<0 || n<0 || m==board.length || n==board[m].length )return false;
+			
+			 if(board[m][n]!=w[i])return false;
+			 boolean exist=check(board,n, m+1, w, i+1) || check(board,n, m-1, w, i+1) || check(board,n+1, m+1, w, i+1) || check(board,n, m-1, w, i+1) || check(board,n-1, m, w, i+1);
+			 return true;
+		 }
+
+	
+
+
+}

@@ -1,0 +1,66 @@
+
+public class InsertionSort {
+	ListNode head; 
+    ListNode sorted;
+
+
+
+		void push(int val) 
+		{ 
+			/* allocate node */
+			ListNode newnode = new ListNode(val); 
+			/* link the old list off the new node */
+			newnode.next = head; 
+			/* move the head to point to the new node */
+			head = newnode; 
+		} 
+
+		// function to sort a singly linked list using insertion sort 
+		public static ListNode insertionSortList(ListNode head) {
+	        ListNode dummy = new ListNode(Integer.MIN_VALUE);
+			ListNode curr = head;
+	        ListNode prev = dummy;
+			while (curr != null) {
+	            //to save checking from start below condition is used
+	            if(prev.val > curr.val)
+	                prev = dummy;
+				
+				while (prev.next != null && prev.next.val<curr.val) {
+					prev = prev.next;
+				}
+				//insert current node between prev and prev.next 
+				ListNode nextNode=curr.next;
+				curr.next=(prev.next);
+				prev.next=(curr);
+				curr=nextNode;
+			}
+			return dummy.next;
+		}
+	    
+ 
+
+		static /* Function to print linked list */
+		void printlist(ListNode head) 
+		{ 
+			while (head != null) 
+			{ 
+				System.out.print(head.val + " "); 
+				head = head.next; 
+			} 
+		} 
+		
+		// Driver program to test above functions 
+		public static void main(String[] args) 
+		{ 
+			ListNode head=SampleList.test1();
+			
+			System.out.println("Linked List before Sorting.."); 
+			printlist(head); 
+			insertionSortList(head);
+			//insertionSort(list.head); 
+			System.out.println("\nLinkedList After sorting"); 
+			printlist(head); 
+		} 
+	} 
+
+	// This code is contributed by Rishabh Mahrsee 

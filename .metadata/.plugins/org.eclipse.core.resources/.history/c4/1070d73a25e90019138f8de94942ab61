@@ -1,0 +1,43 @@
+import java.util.Stack;
+
+public class Inorder 
+{
+Node2 root;
+void inorder()
+{
+	if(root==null)
+		return;
+	Stack<Node2> s=new Stack<Node2>();
+	//s.add(root);
+	 Node2 p = root;
+	 
+	    while(p!=null || s.size()> 0)
+	    {
+	       while(p!=null)
+	       {
+	    	   s.add(p);
+	    	   p=p.left;
+	       }
+	       p=s.pop();
+	    		   System.out.println(p.data);
+	       
+	    }
+	
+	
+}
+
+
+	public static void main(String args[]) 
+	{ 
+		
+		
+		Inorder tree = new Inorder(); 
+		tree.root = new Node2(1); 
+		tree.root.left = new Node2(2); 
+		tree.root.right = new Node2(3); 
+		tree.root.left.left = new Node2(4); 
+		tree.root.left.right = new Node2(5); 
+		tree.inorder(); 
+	} 
+
+}

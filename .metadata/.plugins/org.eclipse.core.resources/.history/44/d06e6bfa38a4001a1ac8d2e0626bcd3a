@@ -1,0 +1,78 @@
+/*
+ * Given a matrix with r rows and c columns, find the maximum score of a path starting at [0, 0] and ending at [r-1, c-1]. The score of a path is the minimum value in that path. For example, the score of the path 8 → 4 → 5 → 9 is 4.
+
+Don't include the first or final entry. You can only move either down or right at any point in time.
+
+Example 1:
+
+Input:
+[[5, 1],
+ [4, 5]]
+
+Output: 4
+Explanation:
+Possible paths:
+5 → 1 → 5 => min value is 1
+5 → 4 → 5 => min value is 4
+Return the max value among minimum values => max(4, 1) = 4.
+
+  */
+import java.util.*;
+ 
+public class MaxOfMin {
+	
+	private static int maxScore2D(int[][] grid)
+	{
+		List<Integer> count=new ArrayList<Integer>();
+		List<Integer> max=new ArrayList<Integer>();
+		int n =grid.length;
+		int m=grid[0].length;
+		int min=Integer.MIN_VALUE;
+		
+			
+		return dfs(grid,0,0,count,min,max);
+		
+	}
+
+	private static int dfs(int[][] grid, int i, int j,List<Integer> count,int min,List<Integer> max) 
+	{
+		 if(i == grid.length - 1 && j == grid[0].length - 1)
+		 {
+			 Collections.max(max);
+		 }
+		 
+	
+		
+		if(i == grid.length || j == grid[0].length){
+            return Integer.MAX_VALUE;
+        }
+     	
+		//count.add(grid[i][j]);
+		if(i<grid.length && j<grid[0].length)
+		{
+		dfs(grid,i+i,j,count,min,max);
+		dfs(grid,i,j+1,count,min,max);
+		}
+		int a=Collections.min(count);
+		max.add(a);
+		return Collections.max(max);
+		
+	}
+
+	public static void main(String[] args) {
+		
+		 int[][] grid1 = new int[][] { {5, 1}, {4, 5} };                        // 4
+		    int[][] grid2 = new int[][] { {5, 1, 7}, {4, 8, 5} };                  // 4
+		    int[][] grid3 = new int[][] { {1, 9, 9}, {9, 9, 9}, {9, 9, 9} };       // 1 (if the first entry is not considered)
+		    int[][] grid4 = new int[][] { {10, 7, 3}, {12, 11, 9}, {1, 2, 8} };    // 8 (same reason)
+		    int[][] grid5 = new int[][] { {20, 20, 3}, {20, 3, 20}, {3, 20, 20} }; // 3
+		    System.out.println("grid1: Expected: 4, Actual: " + maxScore2D(grid1));
+		   // System.out.println("grid2: Expected: 4, Actual: " + maxScore2D(grid2));
+		   // System.out.println("grid3: Expected: 1, Actual: " + maxScore2D(grid3) + " (if the first entry is not considered)");
+		 //   System.out.println("grid4: Expected: 8, Actual: " + maxScore2D(grid4) + " (same reason)");
+		//    System.out.println("grid5: Expected: 3, Actual: " + maxScore2D(grid5));
+		
+
+	}
+
+}

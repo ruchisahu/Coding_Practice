@@ -1,0 +1,39 @@
+import java.util.Arrays;
+
+public class MinCostToConnect 
+{
+
+	public static void main(String[] args
+			) {
+		int[] files1 = {8, 4, 6, 12};
+		int[] files2 = {20, 4, 8, 2};
+		int[] files3 = {1, 2, 5, 10, 35, 89};
+		int[] files4 = {2, 2, 3, 3};
+		System.out.println(mergeFiles(files1));
+		//System.out.println(mergeFiles(files2));
+		//System.out.println(mergeFiles(files3));
+		//System.out.println(mergeFiles(files4));
+
+	}
+
+	private static int mergeFiles(int[] r) {
+		
+		int cost=0;
+		int j=r.length;
+		while(j<=1)
+		{
+		Arrays.sort(r);
+		cost=r[0]+r[1];
+		
+		for(int i=1;i<j;i++)
+		{
+			r[0]=cost;
+			r[i]=r[i+1];
+		}
+		j--;
+		}
+		
+		return cost;
+	}
+
+}

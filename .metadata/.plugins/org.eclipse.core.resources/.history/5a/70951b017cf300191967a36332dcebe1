@@ -1,0 +1,60 @@
+
+public class TreasureIsland 
+{
+	int max=0;
+	public static int treasureIsland(char[][] island) 
+	{
+		if (island == null || island.length == 0) return 0;
+	    int size=0;
+		int n= island.length;
+		int m=island[0].length;
+		for(int i=0;i<n ;i++)
+		{
+			for(int j=0;j<m;j++)
+			{
+				CountIsland(island, i,j,0);
+			}
+		}
+		return size;
+	}
+	public static int CountIsland(char[][] island, int i,int j,int size)
+	{
+		if(i>=0 && i<island.length && j>=0 && j<island[0].length)
+		{
+			if(island[i][j]== 'D')
+			{
+				return -1;
+			}
+			if(island[i][j]== 'X')
+			{
+				return size;
+			}
+			if(island[i][j]== 'O')
+			{
+			size++;
+		CountIsland(island, i+1,j,size);
+		CountIsland(island, i-1,j,size);
+		CountIsland(island, i,j+1, size);
+		CountIsland(island, i,j-1,size);
+	    }
+		}
+		
+		return size;
+	}
+	public static void main(String[] args)
+	{
+		
+		char[][] island = new char[][]{
+			{'O', 'O', 'O', 'O'},
+			{'D', 'O', 'D', 'O'},
+			{'O', 'O', 'O', 'O'},
+			{'X', 'D', 'D', 'O'}
+	};
+	int result = treasureIsland(island);
+	System.out.println(result);
+    }
+}
+
+	
+
+

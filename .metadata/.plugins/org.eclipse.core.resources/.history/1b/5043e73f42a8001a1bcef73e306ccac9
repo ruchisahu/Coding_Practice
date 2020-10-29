@@ -1,0 +1,17 @@
+
+public class TargetSum494
+{
+public static int findTargetSumWays(int[] nums, int S)
+{
+	return 0;
+        
+    }
+
+	public static void main(String[] args) {
+		int[] num= {1, 1, 1, 1, 1};
+		int S=3;
+		System.out.println(findTargetSumWays(num,S));
+
+	}
+
+}

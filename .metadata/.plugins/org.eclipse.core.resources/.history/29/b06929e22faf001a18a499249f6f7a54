@@ -1,0 +1,18 @@
+
+public class LongestSubstringwithoutreapeatingChar3 {
+	 public static int lengthOfLongestSubstring(String s) {
+		 int len=s.length();
+		 boolean[] count =new boolean[len];
+		 return 0;
+	        
+	    }
+
+	public static void main(String[] args) {
+		String s="abcabcbb";
+		 lengthOfLongestSubstring(s);
+		        
+		    
+
+	}
+
+}

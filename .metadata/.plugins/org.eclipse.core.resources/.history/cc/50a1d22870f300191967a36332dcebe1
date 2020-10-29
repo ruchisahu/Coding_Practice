@@ -1,0 +1,47 @@
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
+public class MovieDuration 
+{
+	public static List<Integer> movieDuration(List<Integer> movie,int duration)
+	{
+		List<Integer> result = null;
+		int max=0;
+		for(int i=0;i<movie.size();i++)
+		{
+			for(int j=i;j<movie.size();j++)
+			{
+				int total=movie.get(i) + movie.get(j);
+			
+			if(total < 250)
+			{
+				if(total> max) 
+				{
+					result=new ArrayList<Integer>();
+					result.add(movie.get(i));
+					result.add(movie.get(j));
+				}
+			}
+			
+			}
+		}
+		return result;
+	}
+
+	public static void main(String[] args) 
+	{
+		List<Integer> movie=new ArrayList<Integer>();
+		//int[] movie_d = {90, 85, 75, 60, 120, 150, 125};
+		movie.add(90);
+		movie.add(85);
+		movie.add(75);
+		movie.add(60);
+		movie.add(120);
+		movie.add(150);
+		movie.add(125);
+		int duration=250;
+		System.out.println(movieDuration(movie,duration));
+	}
+
+}

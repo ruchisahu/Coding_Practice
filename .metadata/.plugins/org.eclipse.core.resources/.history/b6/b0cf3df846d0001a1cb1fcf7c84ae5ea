@@ -1,0 +1,53 @@
+package robertSedwick;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class EdgeWeightedGraph implements EdgeWeightedGraphInterface{
+	private final int V;
+	private final List<Edge>[] adj;
+
+	public EdgeWeightedGraph(int V) {
+		this.V=V;
+		adj= (List<Edge>[])new List[V];		
+		for(int v=0;v<V;v++) {
+			adj[v]=new ArrayList<Edge>();
+		}
+	}
+
+	@Override
+	public int vertices() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public int edgesCount() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public void addEdge(Edge edge) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public Iterable<Edge> adjacent(int vertex) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Iterable<Edge> edges() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

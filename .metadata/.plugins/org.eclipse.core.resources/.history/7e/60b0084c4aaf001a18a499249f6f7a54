@@ -1,0 +1,28 @@
+
+public class SerializeDeserializeTree297 {
+	// Encodes a tree to a single string.
+    public String serialize(TreeNode root) {
+    	 return serial(new StringBuilder(), root).toString();
+        
+    }
+    private static StringBuilder serial(StringBuilder str, TreeNode root) {
+    	if(root==null)return str.append("#");
+    	str.append(root.val).append(",");
+    	serial(str, root.left).append(",");
+        serial(str, root.right);
+		return str;
+    	
+    }
+    // Decodes your encoded data to tree.
+    public TreeNode deserialize(String data) {
+		return null;
+        
+    }
+    
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+        String s="1,2,3,null,null,4,null, null, 5, null,null";
+	}
+
+}

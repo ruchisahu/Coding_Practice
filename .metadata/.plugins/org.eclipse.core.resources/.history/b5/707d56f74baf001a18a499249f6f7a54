@@ -1,0 +1,41 @@
+import java.util.*;
+
+public class SerializeDeserializeTree297 {
+	// Encodes a tree to a single string.
+    public static String serialize(TreeNode root) {
+    	 return serial(new StringBuilder(), root).toString();
+        
+    }
+    private static StringBuilder serial(StringBuilder str, TreeNode root) {
+    	if(root==null)return str.append("#");
+    	str.append(root.val).append(",");
+    	serial(str, root.left).append(",");
+        serial(str, root.right);
+		return str;
+    	
+    }
+    // Decodes your encoded data to tree.
+    public static TreeNode deserialize(String data) {
+    	 return deserial(new LinkedList<>(Arrays.asList(data.split(","))));
+    }
+ // Use queue to simplify position move
+    private static TreeNode deserial(Queue<String> q) {
+    	String val = q.poll();
+        if ("#".equals(val)) return null;
+        TreeNode root = new TreeNode(Integer.valueOf(val));
+        root.left = deserial(q);
+        root.right = deserial(q);
+        return root;
+    	
+    }
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+        String s="5,3,#,1,#,#,10,2,#,#,7,#,#";
+        TreeNode root = TreeSample.createbstTree();
+       System.out.println(serialize(root));
+       
+       System.out.println(deserialize(s));
+	}
+
+}

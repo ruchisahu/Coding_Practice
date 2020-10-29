@@ -1,0 +1,18 @@
+import java.util.ArrayList;
+import java.util.List;
+
+public class MovieDuration 
+{
+	public static List<Integer> movieDuration(List<Integer> movie)
+	{
+		List<Integer> result=new ArrayList<Integer>();
+		return result;
+	}
+
+	public static void main(String[] args) 
+	{
+		List<Integer> movie=new ArrayList<Integer>();
+		System.out.println(movieDuration(movie));
+	}
+
+}

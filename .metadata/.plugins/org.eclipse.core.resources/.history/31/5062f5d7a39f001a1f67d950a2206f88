@@ -1,0 +1,71 @@
+import java.util.*;
+
+public class SearchSuggestion {
+
+	  public static List<List<String>> suggestedProducts(String[] products, String searchWord)
+	    {
+		  List<List<String>> result= new ArrayList<List<String>>();
+	   	List<String> list = Arrays.asList(products);
+		  Collections.sort(list);
+	/*	  for(int i=0; i<list.size();i++)
+			{
+				System.out.println(list.get(i));
+			}
+			*/
+			
+		  int len=searchWord.length();
+		  int end=1;
+		  while(len>0)
+		  {
+			  
+			  List<String> temp=new ArrayList<String>();
+			  for(int i=0; i<list.size();i++)
+				{
+				  String str=searchWord.substring(0,end);
+				  if(list.get(i).substring(0,end).length()<str.length())continue;
+				//  System.out.println("word to match="+str);
+				  System.out.println("product="+list.get(i)+"    "+list.get(i).substring(0,end)+"   "+list.get(i).substring(0,end).length());
+				  System.out.println("str="+str+"   "+str.length());
+				  
+				  
+				  
+				  if(list.get(i).substring(0,end).equals(str)&& temp.size()<3  )
+				  {
+					  temp.add(list.get(i));
+				  }
+				}
+			  result.add(temp);
+			 
+			  
+			//  System.out.println("result");
+			 // if(end<len)
+				  end++;
+			  len--;
+			  
+			  
+		  }
+		  for(int i=0; i<result.size();i++)
+			{
+				System.out.println(result.get(i));
+			}
+		  return result;
+		  
+	    }
+	public static void main(String[] args) {
+		String[] products= {"mobile","mouse","moneypot","monitor","mousepad"};
+		
+		String searchWord = "mouse";
+		
+		String[] products1 = {"bags","baggage","banner","cloths","box"};
+		String searchWord1 = "bags";
+		System.out.println("output1");
+		//suggestedProducts(products, searchWord);
+		
+		System.out.println("output2");
+		suggestedProducts(products1, searchWord1);
+		
+		
+
+	}
+
+}

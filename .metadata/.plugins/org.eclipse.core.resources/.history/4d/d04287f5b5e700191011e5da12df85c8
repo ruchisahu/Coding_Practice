@@ -1,0 +1,19 @@
+
+public  class mincheck 
+{
+	static int mincheck1(int[]a, int n, int s1,int s2)
+	{
+		if(n>a.length)
+			return Math.abs(s1-s2);
+		return Math.min(mincheck1(a,n-1,s1+a[n],s2),mincheck1(a,n-1,s1,s2+a[n]));
+		
+	}
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		int[] a= {1,6,11,5};
+		int n=a.length;
+		System.out.println(mincheck1(a,n,0,0 ));
+
+	}
+
+}

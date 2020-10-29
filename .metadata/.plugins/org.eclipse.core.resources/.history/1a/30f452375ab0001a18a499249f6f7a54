@@ -1,0 +1,14 @@
+
+public class RegularExpression10 {
+	  public static boolean isMatch(String s, String p) {
+		  return true;
+	  }
+
+	public static void main(String[] args) {
+		String s="aab";
+		String p="c*a*b";
+		 isMatch(s, p);
+
+	}
+
+}

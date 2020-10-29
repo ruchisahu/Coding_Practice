@@ -1,0 +1,17 @@
+package robertSedwick;
+/*
+ * basic search api
+ * class search{
+ * Search(Graph G,int s)  //find vertices connected to sourse vertex s
+ * boolean marked(int v)  // v connected to s
+ * int count //how many vertices connected to s.
+ * }
+ */
+public class DepthFirstSearch {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

@@ -1,0 +1,45 @@
+package robertSedwick;
+
+public class EdgeWeightedGraph implements EdgeWeightedGraphInterface{
+	
+
+	public EdgeWeightedGraph() {
+		
+	}
+
+	@Override
+	public int vertices() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public int edgesCount() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public void addEdge(Edge edge) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public Iterable<Edge> adjacent(int vertex) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Iterable<Edge> edges() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

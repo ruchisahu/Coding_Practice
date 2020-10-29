@@ -1,0 +1,82 @@
+
+
+	import java.util.*;
+	import static java.lang.Integer.max;
+	 
+	// node class
+	class node
+	{
+	    int data;
+	    node left;
+	    node right;
+	 
+	    // function that returns a pointer to new node
+	    public node(int element){
+	        this.data = element;
+	        this.left = null;
+	        this.right = null;
+	        
+	    }
+	};
+	 
+	 
+	public class rightview 
+	{
+	 
+	    // BFS iterative using queue for left view
+	    static void left_view_iter(node root)
+	    {
+	        if(root == null){
+	            return;
+	        }
+	 
+	        // creating a Queue for storing node for level wise traversal
+	        ArrayList<node> Q = new ArrayList<node>();;
+	        Q.add(root);
+	        int level = 0, max_level = 0;
+	 
+	        while(!Q.isEmpty()){
+	            // store the current size of the Q
+	            int count = Q.size();
+	            level += 1;
+	            while(count > 0) {
+	                // pop the first node from the queue
+	                node NODE = (node)Q.get(0);
+	                Q.remove(0);
+	                if(max_level < level) {
+	                    System.out.print(NODE.data + " ");
+	                    max_level = level;
+	                }
+	 
+	                // push the left child on queue
+	                if (NODE.left != null) {
+	                    Q.add(NODE.left);
+	                }
+	 
+	                // push the right child on queue
+	                if (NODE.right != null) {
+	                    Q.add(NODE.right);
+	                }
+	                count--;
+	            }
+	        }
+	    }
+	     
+	    public static void main(String arg[]) 
+	    {
+	        node head = new node(1);
+	        head.left = new node(2);
+	        head.right = new node(3);
+	        head.left.left = new node(4);
+	        head.left.right = new node(5);
+	        head.right.right = new node(6);
+	        head.left.left.right = new node(7);
+	        head.right.right.left = new node(8);
+	        head.left.left.right.left = new node(9);
+	        head.left.left.right.left.left = new node(10);
+	        head.right.right.left.right = new node(11);
+	        System.out.print("Left view of the binary tree is : ");
+	        left_view_iter(head);
+	    }
+	}
+

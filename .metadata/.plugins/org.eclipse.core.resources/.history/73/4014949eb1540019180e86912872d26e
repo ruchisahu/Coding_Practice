@@ -1,0 +1,43 @@
+
+public class Decoding 
+{
+
+	 public static int numDecodings(String s) 
+	    {
+	        char[] c=new char[27];
+	       
+	            c[1]='A';
+	            c[2]='B';
+	            c[12]='L';
+	          //  System.out.println(c[i]);
+	        
+	        int res=0;
+	        int len=s.length();
+	        for(int j=0;j<len;j++)
+	        {
+	        	for(int k=0;k<len-j;k++)
+	        	{
+	        		String str=s.substring(k,j);
+	        		System.out.println(str);
+	        		if(str.startsWith("0")) continue;
+	        		int val = Integer.parseInt(str);
+	        		System.out.println(val);
+	                if(val > 0 && val < 27) 
+	                {
+	                  res ++; 
+	                  System.out.println(c[val]);
+	                }
+	        	}
+	        }
+	        return res;
+	        
+	    }
+	public static void main(String[] args) 
+	{
+		// TODO Auto-generated method stub
+		String s="12";
+		numDecodings(s) ;
+
+	}
+
+}

@@ -1,0 +1,33 @@
+
+public class RemoveNthNode19 {
+	 public static ListNode removeNthFromEnd(ListNode head, int n)
+	    {
+		 ListNode curr=head;
+		 int count=0;
+		 while(curr!=null)
+		 {
+			 curr=curr.next;
+			 count++;
+			 
+		 }
+		 curr=head;
+		 int m=0;
+		 while(m<count-n)
+		 {
+			 curr=curr.next;
+			 m++;
+		 }
+		 curr.next=curr.next.next;
+			return head;
+		 
+	    }
+
+	public static void main(String[] args) {
+		ListNode head = ListSample.createEvenNodeList();
+		ListNode result=removeNthFromEnd(head, 2);
+		PrintList.printListNode( result );
+		
+
+	}
+
+}

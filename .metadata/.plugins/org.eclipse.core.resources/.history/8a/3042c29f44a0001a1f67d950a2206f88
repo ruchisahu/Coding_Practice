@@ -1,0 +1,76 @@
+import java.util.*;
+
+/*
+ Given 2 lists a and b. Each element is a pair of integers where the first integer represents the unique id and 
+ the second integer represents a value. Your task is to find an element from a and an element form b such that 
+ the sum of their values is less or equal to target and as close to target as possible.
+  Return a list of ids of selected elements. If no pair is possible, return an empty list.
+  
+  Input:
+a = [[1, 2], [2, 4], [3, 6]]
+b = [[1, 2]]
+target = 7
+
+Output: [[2, 1]]
+
+Explanation:
+There are only three combinations [1, 1], [2, 1], and [3, 1], which have a total sum of 4, 6 and 8, respectively.
+Since 6 is the largest sum that does not exceed 7, [2, 1] is the optimal pair.
+ * */
+
+public class OptimalUtilization {
+	
+	  public static List<int[]> getPairs(List<int[]> a, List<int[]> b, int target) 
+	  {
+		  List<int[]> result=new  ArrayList<int[]> ();
+		  
+		  int max=Integer.MIN_VALUE;
+		  for(int i=0;i<a.size();i++){
+			  
+			  for(int j=0;j<b.size();j++){
+				  //a.get(i)[1]
+				  int sum=a.get(i)[1] +b.get(i)[1];
+				  if(sum<=target){
+					  if(sum>max){
+						  max=sum;
+						  result=new ArrayList<>();
+						  int[] sum1=new int[2];
+						  sum1[0]=a.get(i)[0];
+						  sum1[1]=b.get(j)[0];
+						  
+						  result.add(sum1);
+					  }else{
+						  
+						  int[] sum1=new int[2];
+						  sum1[0]=a.get(i)[0];
+						  sum1[1]=b.get(j)[0];
+						  
+						  result.add(sum1);
+					  }
+				   }
+				}
+			}
+		
+		  
+		  return result;
+	  }
+
+	public static void main(String[] args) {
+		List<int[]> a=new ArrayList<int[]>();
+		int[] a1= {1,2};
+		int[] a2= {2,4};
+		int[] a3= {3,6};
+		a.add(a1);
+		a.add(a2);
+		a.add(a3);
+				List<int[]> b=new ArrayList<int[]>();
+				int[] b1= {1,2};
+				b.add(b1);
+						 int target=7;
+				
+				
+		getPairs(a,b,target);
+
+	}
+
+}

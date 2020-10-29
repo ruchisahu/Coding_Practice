@@ -1,0 +1,37 @@
+
+
+	import java.util.*;
+	import java.util.Comparator;
+	public class ComparatorOrder
+	{
+		public class NameSorter implements Comparator<Employee>
+		{
+		    @Override
+		    public int compare(Employee e1, Employee e2) {
+		        return e1.getName().compareToIgnoreCase( e2.getName() );
+		    }
+		};
+	
+	    // Employee database
+	    
+	     
+		 
+	   // static final Collection<Employee> employees = ... ;
+
+	    public static void main(String[] args) {
+	    	
+	    	Employee[] employees = new Employee[4];
+			 
+			employees[0] = new Employee("Tom", 45, 80000);
+			employees[1] = new Employee("Sam", 56, 75000);
+			employees[2] = new Employee("Alex", 30, 120000);
+			employees[3] = new Employee("Peter", 25, 60000);
+			
+	        List<Employee> e = new ArrayList<Employee>();
+	        e.add(new Employee("Tom", 45, 80000));
+	        e.add(new Employee("Sam", 56, 70000));
+	        Collections.sort(e, NameSorter);
+	        System.out.println(e);
+	    }
+	}
+

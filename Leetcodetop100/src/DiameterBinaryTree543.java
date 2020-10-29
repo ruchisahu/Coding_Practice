@@ -1,0 +1,45 @@
+
+public class DiameterBinaryTree543 {
+	
+	//counting nodes
+public static int diameterOfBinaryTree(TreeNode root) 
+{
+	if(root==null)return 0;
+	int d=depth(root.left)+depth(root.right);
+
+	return d+1;
+        
+    }
+
+	private static int depth(TreeNode root) {
+	
+		if(root==null) return 0;
+        if(root.left==null && root.right==null)
+            return 1;
+        
+        return Math.max(depth(root.left), depth(root.right)) +1;
+}
+	
+	//counting edges
+	 static int ans;
+	    public static int diameterOfBinaryTree1(TreeNode root) {
+	        ans = 1;
+	        depth1(root);
+	        return ans - 1;
+	    }
+	    public static int depth1(TreeNode node) {
+	        if (node == null) return 0;
+	        int L = depth1(node.left);
+	        int R = depth1(node.right);
+	        ans = Math.max(ans, L+R+1);
+	        return Math.max(L, R) + 1;
+	}
+
+	public static void main(String[] args) {
+		TreeNode head = TreeSample.createbstTree();
+		System.out.println("counting nodes"+diameterOfBinaryTree(head));
+		System.out.println("counting edges="+diameterOfBinaryTree1(head));
+
+	}
+
+}

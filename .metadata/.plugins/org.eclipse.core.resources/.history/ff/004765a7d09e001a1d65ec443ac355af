@@ -1,0 +1,64 @@
+import java.util.*;
+
+public class AirCraftRoute
+{
+	public static List<PairInt> getOptimizedUtilize(int maxTravelDist, List<PairInt> forwardRouteList, List<PairInt> returnRouteList)
+	{
+		List<PairInt> result=new ArrayList<PairInt>();
+		int max=0;
+		System.out.println(forwardRouteList.size());
+		System.out.println(returnRouteList.size());
+		
+		 for (int i = 0; i <forwardRouteList.size(); i++) { 
+			 
+			 int forward= forwardRouteList.get(i).second;
+	            for (int j = 1; j < returnRouteList.size(); j++) { 
+	            	int retur =returnRouteList.get(j).second;
+	            	int maxsize=forward + retur;
+	            	if(maxsize>max && maxsize<=maxTravelDist)
+	            	{
+	            		
+	            		max=maxsize;
+	            		result.remove(max);
+	            		int f=forwardRouteList.get(i).first;
+	            		int s =returnRouteList.get(j).first;
+	            		
+	            		
+	            		result.add(new PairInt(f,s));
+	            	}
+	            	if(maxsize==max && maxsize<=maxTravelDist)
+	            	{
+	            		
+	            		max=maxsize;
+	            		//result.remove(max);
+	            		int f=forwardRouteList.get(i).first;
+	            		int s =returnRouteList.get(j).first;
+	            		
+	            		
+	            		result.add(new PairInt(f,s));
+	            	}
+	            	
+	            	
+	            	
+	            }
+		 
+	            }
+		
+		return result;
+	}
+	
+	
+
+	public static void main(String[] args) {
+		List<PairInt> forwardRouteList=new ArrayList<PairInt>();
+		List<PairInt> returnRouteList=new ArrayList<PairInt>();
+		forwardRouteList.add(new PairInt(1,2000));
+		forwardRouteList.add(new PairInt(2,3000));
+		forwardRouteList.add(new PairInt(3,4000));
+		returnRouteList.add(new PairInt(1,2000));
+		
+		System.out.println(getOptimizedUtilize(7000,forwardRouteList,returnRouteList));
+
+	}
+
+}

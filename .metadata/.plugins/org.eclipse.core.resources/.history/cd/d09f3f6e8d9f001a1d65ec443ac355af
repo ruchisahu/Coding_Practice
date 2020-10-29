@@ -1,0 +1,117 @@
+import java.util.*;
+
+/*
+ * Given a list of reviews, a list of keywords and an integer k. Find the most popular k keywords in order of most to least frequently mentioned.
+
+The comparison of strings is case-insensitive.
+Multiple occurances of a keyword in a review should be considred as a single mention.
+If keywords are mentioned an equal number of times in reviews, sort alphabetically.
+
+Example 1:
+
+Input:
+k = 2
+keywords = ["anacell", "cetracular", "betacellular"]
+reviews = [
+  "Anacell provides the best services in the city",
+  "betacellular has awesome services",
+  "Best services provided by anacell, everyone should use anacell",
+]
+
+Output:
+["anacell", "betacellular"]
+
+Explanation:
+"anacell" is occuring in 2 different reviews and "betacellular" is only occuring in 1 review.
+
+ */
+public class TopKFrequent {
+	
+	//solution2
+	public static List<String> getFrequent(int k,String[] keywords,String[] words){
+	    Map<String,Integer> count= new HashMap<>();
+	    List<String> keywordsList= Arrays.asList(keywords);
+	    for(String word:words){
+	      for(String s:word.split("\\s+")){
+	        if(keywordsList.contains(s)){
+	          count.put(s,count.getOrDefault(s,0)+1);
+	        }
+	      }    
+	    }
+	        
+	    List<String> ls = new ArrayList<>(count.keySet());    
+	    Collections.sort(ls, (a,b)-> (count.get(a)).equals(count.get(b))?a.compareTo(b):count.get(b)-count.get(a));    
+	        
+	    return ls.subList(0,k);  
+	}
+	//solution1
+	public static List<String> FindTop(int k, String[] keywords, String[] reviews)
+	{
+		List<String> word=new ArrayList<String>();
+        HashMap<String, Integer> map=new HashMap<String, Integer>();
+		
+		for(String wor:keywords)
+		{
+			/*if(map.containsKey(word))
+			{
+				map.put(word, map.get(word)+1);
+			}
+			else
+			*/
+				map.put(wor, 0);
+		}
+		
+		for(String review: reviews)
+		{
+			String[] strs = review.split("\\W");
+			Set<String> allword = new HashSet<String>();
+			for(String s : strs) {
+				
+				allword.add(s.toLowerCase());
+			}
+			
+			Iterator<String> i=allword.iterator();  
+	        while(i.hasNext())  
+	        {  
+	        	String w=i.next();
+	        
+	        if(map.containsKey(w))
+			{
+				map.put(w, map.get(w)+1);
+				// System.out.println(w+"   "+map.get(w)); 
+			}
+		 
+			}
+		}
+		
+		//priority queue
+		Queue<Map.Entry<String, Integer>> maxHeap = new PriorityQueue<>((a, b)->a.getValue() == b.getValue() ? a.getKey().compareTo(b.getKey()) : b.getValue() - a.getValue());
+		maxHeap.addAll(map.entrySet());
+		while(!maxHeap.isEmpty() && k-- > 0) {
+			word.add(maxHeap.poll().getKey());
+		}
+		//print result
+		for(int i=0; i<word.size();i++)
+		{
+			System.out.println(word.get(i));
+		}
+		
+		return word;
+	}
+
+	public static void main(String[] args) {
+		
+		int k = 2;
+		String[] keywords = { "anacell", "cetracular", "betacellular" };
+		
+		
+		String[] reviews = { "Anacell provides the best services in the city", "betacellular has awesome services",
+				"Best services provided by anacell, everyone should use anacell", };
+		
+		FindTop(k,keywords, reviews);
+		
+		getFrequent(k,keywords,reviews);
+
+	}
+
+}

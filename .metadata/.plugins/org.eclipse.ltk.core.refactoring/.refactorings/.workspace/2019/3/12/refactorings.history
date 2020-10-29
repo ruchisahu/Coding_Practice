@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Delete resource &apos;bipartite1&apos;" deleteContents="false" description="Delete resource &apos;bipartite1&apos;" element1="/bipartite1" flags="7" id="org.eclipse.ltk.core.refactoring.delete.resources" resources="1" stamp="1552847076409"/>
+</session>

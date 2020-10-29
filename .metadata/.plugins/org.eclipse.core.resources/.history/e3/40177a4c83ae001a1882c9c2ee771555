@@ -1,0 +1,17 @@
+import java.util.*;
+public class CollectioncompareTest {
+	public static List<String> getFrequent(int k,String[] keywords,String[] words){
+	  
+	    HashMap<String, Integer> count=new HashMap<String, Integer>();
+		count.put("adam", 123);
+		count.put("Kate", 234);
+		List<String> ls = new ArrayList<>(count.keySet());    
+		
+	  //  Collections.sort(list, (o1, o2) -> (o1>o2 ? -1 : (o1==o2 ? 0 : 1)));
+	    Collections.sort(ls, (a,b)-> (count.get(a)).equals(count.get(b))?a.compareTo(b):count.get(b)-count.get(a));    
+	        
+	    return ls.subList(0,k);    
+	  }
+	}
+
+

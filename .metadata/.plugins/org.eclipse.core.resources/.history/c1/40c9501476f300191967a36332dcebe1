@@ -1,0 +1,150 @@
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+
+public class MovieDuration 
+{
+	public static List<Integer> movieDuration(List<Integer> movie,int duration)
+	{
+		List<Integer> result = null;
+	
+		 if(movie == null | movie.size()==0)
+	            return result;
+		
+		int max=0;
+		for(int i=0;i<movie.size();i++)
+		{
+			for(int j=i;j<movie.size();j++)
+			{
+				int total=movie.get(i) + movie.get(j);
+			
+			if(total < 220)
+			{
+				if(total> max) 
+				{
+					max=total;
+					result=new ArrayList<Integer>();
+					result.add(movie.get(i));
+					result.add(movie.get(j));
+				}
+			}
+			
+			}
+		}
+		return result;
+	}
+//////////////////////////////////////////////////////////////using two pointer
+	public static int [] movieDuration1(int [] nums, int d)
+	{
+		int [] result = new int [2];
+		int max = Integer.MIN_VALUE;
+		int start = 0;
+		int end = nums.length-1;
+		Arrays.sort(nums);
+		int i = 0;
+		int j = 0;
+		ArrayList<Integer> a = new ArrayList<Integer>();
+		
+		while(start <= end)
+		{
+			if((nums[start] + nums[end])<= d-30)
+			{
+				
+				if(max < (nums[start] + nums[end]))
+				{
+					max = (nums[start] + nums[end]);
+					i = nums[start];
+					j = nums[end];
+				}
+				start++;
+			
+			}
+			else if((nums[start] + nums[end]) > d-30)
+					{
+						end--;
+					}
+		}
+		result[0] = i;
+		result[1] = j;
+		System.out.println("second sol"+result[0]+result[1]);
+		return result;
+	}
+	///////////////////////////////////////////////sol 3
+	
+		class pair {
+			int lo, hi;
+			pair(int lo, int hi) {
+				this.lo = lo;
+				this.hi = hi;
+			}
+		}
+		public int[] moviesOnFlight(List<Integer> movieDurations, int d) {
+			int time = d - 30;
+			Map<Integer, Integer> originalOrder = new HashMap();
+			for (int i = 0; i < movieDurations.size(); i++) {
+				originalOrder.put(movieDurations.get(i), i);
+			}
+			Collections.sort(movieDurations);
+			if (movieDurations.size() < 2 || movieDurations.get(0) + movieDurations.get(1) > time) {
+				return new int[0];
+			}
+			Map<Integer, List<pair>> map = new HashMap();
+			int max = 0;
+			int lo = 0, hi = movieDurations.size() - 1;
+			while (lo < hi) {
+				if (movieDurations.get(lo) + movieDurations.get(hi) > time) {
+					hi--;
+				} else {
+					int curTime = movieDurations.get(lo) + movieDurations.get(hi);
+					if (curTime >= max) {
+						if (curTime > max) {
+							max = curTime;
+							map.put(curTime, new ArrayList());
+						}
+						map.get(max).add(new pair(lo, hi));
+					}
+					lo++;
+				}
+			}
+			List<pair> maxtime = map.get(max);
+			max = 0;
+			int[] res = new int[2];
+			for (pair p : maxtime) {
+				int temp = Math.max(movieDurations.get(p.lo), movieDurations.get(p.hi));
+				if (temp > max) {
+	                max = temp;
+					int index1 = originalOrder.get(movieDurations.get(p.lo));
+					int index2 = originalOrder.get(movieDurations.get(p.hi));
+					res[0] = (index1 > index2) ? index2 : index1;
+					res[1] = index1 + index2 - res[0];
+				}
+			}
+			return res;
+		
+	}
+		
+	
+	public static void main(String[] args) 
+	{
+		List<Integer> movie=new ArrayList<Integer>();
+		//int[] movie_d = {90, 85, 75, 60, 120, 150, 125};
+		movie.add(90);
+		movie.add(85);
+		movie.add(75);
+		movie.add(60);
+		movie.add(120);
+		movie.add(150);
+		movie.add(125);
+		int duration=250;
+		System.out.println(movieDuration(movie,duration));
+		
+		int [] nums =  new int [] {90, 85, 75, 60, 120, 150, 125};
+		movieDuration1(nums,duration);
+		
+		
+	}
+
+}

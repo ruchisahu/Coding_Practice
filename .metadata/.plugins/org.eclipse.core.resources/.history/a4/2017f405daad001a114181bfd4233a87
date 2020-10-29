@@ -1,0 +1,62 @@
+import java.util.*;
+
+public class SubtreeWithMaximumAverage
+{
+	
+	double max = Integer.MIN_VALUE;
+	TreeNode1 maxNode = null;
+
+	public TreeNode1 getMaximumAverage(TreeNode1 root) {
+	    if (root == null) return null;
+	    helper(root);
+	    return maxNode;
+	}
+
+	private double[] helper(TreeNode1 root)
+	{
+	    if (root == null) return new double[] {0, 0};
+
+	    double curTotal = root.val;
+	    double count = 1;
+	    System.out.println(root.val);
+	    for (TreeNode1 child : root.children) {
+	        double[] cur = helper(child);
+	        curTotal += cur[0];
+	        count += cur[1];
+	    }   
+	    
+	   // System.out.println(avg);
+	    double avg = curTotal / count;
+	    if (count > 1 && avg > max) { //taking "at least 1 child" into account
+	        max = avg;
+	        maxNode = root;
+	    }
+	    System.out.println(avg);
+	    return new double[] {curTotal, count};
+	}
+
+	 public static void main(String[] args) 
+	 {
+	        // Input:
+	        //              20
+	        //            /   \
+	        //          12     18
+	        //       /  |  \   / \
+	        //     11   2   3 15  8
+	        TreeNode1 left = new TreeNode1(12);
+	        left.children = Arrays.asList(new TreeNode1(11), new TreeNode1(2), new TreeNode1(3));
+
+	        TreeNode1 right = new TreeNode1(18);
+	        right.children = Arrays.asList(new TreeNode1(15), new TreeNode1(8));
+	        
+	        TreeNode1 root = new TreeNode1(20);
+	        root.children = Arrays.asList(left, right);
+
+	     //   test(root); // output: 18
+	    }
+	    
+	    private static void test(TreeNode1 root) {
+	    	TreeNode1 maxNode = new SubtreeWithMaximumAverage().getMaximumAverage(root);
+	        System.out.println("Max Average: " + maxNode.val);
+	    }
+	}

@@ -1,0 +1,58 @@
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+import java.util.*;
+public class wordladded 
+{
+	public static int ladderLength(String beginWord, String endWord, List<String> wordList)
+	{
+		Set<String> set = new HashSet<String>();
+		
+
+	    Queue<String> queue = new LinkedList<>();
+	    queue.add(beginWord);
+	    // COUNT NUMBER OF WORDS TRANSFORMED
+	    int count = 1;
+	    while (!queue.isEmpty()) {
+	        int size = queue.size();
+	        // FOR ALL WORDS THIS ROUND
+	        for (int i = 0; i < size; i++) {
+	            char[] current = queue.poll().toCharArray();
+	            // TRAVERSE CURRENT WORD
+	            for (int j = 0; j < current.length; j++) {
+	                char tmp = current[j];
+	                // CHANGE ONE LETTER AT A TIME 
+	                for (char c = 'a'; c <= 'z'; c++) {
+	                    current[j] = c;
+	                    String next = new String(current);
+	                    // WHEN NEXT WORD IS IN THE SET
+	                    if (set.contains(next)) {
+	                        if (next.equals(endWord)) return count + 1;
+	                        queue.add(next);
+	                        set.remove(next);
+	                    }
+	                }
+	                // HAVE TO UNDO FOR NEXT CHANGE OF LETTER
+	                current[j] = tmp;
+	            }
+	        }
+	        // THIS ROUND ENDS WITH ONE LETTER CHANGED
+	        count++;
+	    }
+	    return 0;
+	}
+	public static void main(String[] args) {
+		String beginWord="hot";
+		String endWord="cog";
+		//["hot","dot","dog","lot","log","cog"]
+		List<String> wordList=new ArrayList<String>();
+		wordList.add("dog");
+		wordList.add("log");
+		wordList.add("cog");
+		wordList.add("dot");
+		wordList.add("lot");
+		wordList.add("hot");
+		System.out.println(ladderLength(beginWord,endWord,wordList));
+	}
+
+}

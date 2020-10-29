@@ -1,0 +1,57 @@
+/*
+ Given an array containing only positive integers, return if you can pick two integers from the array which cuts the array into three pieces such that the sum of elements in all pieces is equal. 
+ 
+Example 1:
+Input:  array = [2, 4, 5, 3, 3, 9, 2, 2, 2]
+Output: true
+Explanation: choosing the number 5 and 9 results in three pieces [2, 4], [3, 3] and [2, 2, 2]. Sum = 6.
+ 
+Example 2:
+Input:  array =[1, 1, 1, 1],
+Output: false
+ */
+public class LoadBalancer 
+{
+public static  boolean loadBalance(int[] arr)
+{
+	int len=arr.length-1;
+	int l=arr[0];
+	int i=0;
+	int j=len;
+	
+	int r=arr[len];
+	System.out.println("test");
+	while(i<j-4) {
+		if(l==r) {
+			if(calculateMid(l,r,arr,i+2,j-2)) {
+				return true;
+			}
+			l=l+arr[i+1];
+			r=r+arr[j-1];
+			i=i+1;
+			j=j+1;
+		}
+	}
+				
+			
+		return false;
+	}
+
+	private static boolean calculateMid(int l,int r,int[] arr, int i, int j) {
+		int sum=0;
+		for(int k=i;k<=j;k++)
+		{
+			sum=sum+arr[k];
+		}
+		if(sum==l)return true;
+	
+	return false;
+}
+
+	public static void main(String[] args) {
+		 int[] arr = {2, 4, 5, 3, 3, 9, 2, 2, 2};
+		 System.out.println(loadBalance(arr));
+
+	}
+
+}
