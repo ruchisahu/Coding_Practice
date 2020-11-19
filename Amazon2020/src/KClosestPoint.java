@@ -63,7 +63,7 @@ public class KClosestPoint
 				System.out.println(kClosest(points, K));
 				
 				int[][] points1= {{-16, 5}, {-1, 2}, {4, 3}, {10, -2}, {0, 3}, {-5, -9}};
-				System.out.println(kClosest(points1, K));
+			//	System.out.println(kClosest(points1, K));
 		
 
 	}

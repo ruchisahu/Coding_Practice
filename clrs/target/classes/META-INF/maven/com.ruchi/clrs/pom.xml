@@ -5,11 +5,6 @@
   <version>1.0.0</version>
   <name>Algorithms</name>
   <description>clrs code</description>
-   <dependencies>
-   <dependency>
-        <groupId>org.seleniumhq.selenium</groupId>
-        <artifactId>selenium-java</artifactId>
-        <version>3.141.59</version>
-        </dependency>
-    </dependencies>
+   
+                                                               
 </project>

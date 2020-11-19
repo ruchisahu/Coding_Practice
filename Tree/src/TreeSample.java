@@ -172,5 +172,43 @@ public class TreeSample {
 		return node0;
 		  
 	  }
+	  public static TreeNode createbstTree652()
+
+		 {
+
+		  TreeNode node0 = new TreeNode( 1 );
+
+		  TreeNode node1 = new TreeNode( 2 );
+
+		  TreeNode node2 = new TreeNode( 3 );
+
+		  TreeNode node3 = new TreeNode( 4 );
+
+		  TreeNode node4 = new TreeNode( 2 );
+
+		  TreeNode node5 = new TreeNode( 4 );
+		  
+		  TreeNode node6 = new TreeNode( 4 );
+
+
+
+		  node0.left = node1;   //2
+
+		  node0.right = node2;   //3
+
+		  node1.left = node3;  //4
+
+		  node2.left = node4;  //2
+
+		//  node2.right = node5;   //4
+		  
+		  node4.left=node6;
+		  
+
+		  
+
+		  return node0;
+
+		 }
 
 	}

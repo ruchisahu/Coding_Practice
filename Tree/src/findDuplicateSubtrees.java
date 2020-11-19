@@ -1,4 +1,4 @@
-import java.util.*;
+ import java.util.*;
 //https://leetcode.com/problems/find-duplicate-subtrees/
 public class findDuplicateSubtrees {
 	 static Map<String, Integer> count;
@@ -16,7 +16,10 @@ public class findDuplicateSubtrees {
 	        if (node == null) return "#";
 	        String serial = node.val + "," + collect(node.left) + "," + collect(node.right);
 	        count.put(serial, count.getOrDefault(serial, 0) + 1);
-	        if (count.get(serial) == 2)
+	        if (count.get(serial) == 2) {
+	        	  ans.add(node);
+	        	  System.out.println("duplicate subtree:  "+serial);
+	        }
 	            ans.add(node);
 	        return serial;
 	    }
