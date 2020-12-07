@@ -1,4 +1,5 @@
 /*
+ * https://leetcode.com/discuss/interview-question/932920/
  * Example: shopping list={Apple, Mango, Apple, Banana, Kiwi, Grapes, Watermelon}
 Coupon list{
 {Apple, Mango},

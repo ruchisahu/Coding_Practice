@@ -24,7 +24,21 @@ public class MinCostToConnect
 		//System.out.println(mergeFiles(files4));
 
 	}
-
+   //my sol:working
+	public static int minCost1(int[] ropes) {
+		int cost=0;
+		PriorityQueue<Integer> pq=new PriorityQueue<>();
+		for(int r:ropes) {
+			pq.add(r);
+		}
+		while(pq.size()>1) {
+			int sum=pq.poll()+pq.poll();
+			cost=cost+sum;
+			pq.add(sum);
+			
+		}
+		return cost;
+	}
 	private static int mergeFiles(int[] r) {
 		
 		int cost=0;

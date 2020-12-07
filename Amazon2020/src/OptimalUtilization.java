@@ -20,6 +20,29 @@ Since 6 is the largest sum that does not exceed 7, [2, 1] is the optimal pair.
 
 public class OptimalUtilization {
 	
+	//working
+	 public static void closestSum(List<List<Integer>> listA, List<List<Integer>> listB, int target) {
+	        List<List<Integer>> result = new ArrayList<List<Integer>>();
+	        int diff = Integer.MAX_VALUE;
+	        for (List<Integer> lista : listA) {
+	            int first = lista.get(1);
+	            for (List<Integer> listb : listB) {
+	                //System.out.println(result);
+	                int second = listb.get(1);
+	                if ((first+second) <=target ) {
+	                    if (target - (first+second) <  diff) {
+	                        result.clear();
+	                        result.add(new ArrayList<Integer>(Arrays.asList(lista.get(0), listb.get(0))));
+	                        diff = target - (first+second);
+	                    } else if (target - (first+second) ==  diff) {
+	                        result.add(new ArrayList<Integer>(Arrays.asList(lista.get(0), listb.get(0))));
+	                    }                                     
+	                }
+	            }          
+	        }
+	        System.out.println("Output: " + result);
+	    }
+	
 	  public static List<int[]> getPairs(List<int[]> a, List<int[]> b, int target) 
 	  {
 		  List<int[]> result=new  ArrayList<int[]> ();

@@ -11,7 +11,7 @@ public class Countingbit338
 {
 	public static int[] countBits(int num)
     {
-        int[] result=new int[num+1];
+      int[] result=new int[num+1];
       for(int i=0;i<=num;i++)
       {
           int n=countbit(i);

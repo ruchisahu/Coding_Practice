@@ -124,11 +124,11 @@ public class TreeSample {
 
 	  TreeNode node2 = new TreeNode( 10 );
 
-	  TreeNode node3 = new TreeNode( 1 );
+	  TreeNode node3 = new TreeNode( 4 );
 
-	  TreeNode node4 = new TreeNode( 2 );
+	  TreeNode node4 = new TreeNode( 6 );
 
-	  TreeNode node5 = new TreeNode( 7 );
+	  TreeNode node5 = new TreeNode( 17 );
 
 
 
