@@ -1,3 +1,6 @@
+import java.util.Collections;
+import java.util.*;
+
 
 public class CompareHashMap {
 	 public String mostCommonWord(String p, String[] banned) {

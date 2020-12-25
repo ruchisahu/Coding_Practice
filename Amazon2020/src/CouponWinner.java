@@ -1,13 +1,13 @@
 
 public class CouponWinner {
 	 public static int winner(String[][] codes, String[] shoppingCart){
-	        StringBuilder regex = new StringBuilder(".*");
+	        StringBuilder sb = new StringBuilder(".*"); //the dot means anything can go here and the star means at least 0 times so .* accepts any sequence of characters, including an empty string.
 
 	        for(String[] code : codes){
 	            for(String str : code){
-	                regex.append(str.equals("anything") ? ".+" : str);
+	                sb.append(str.equals("anything") ? ".+" : str);
 	            }
-	            regex.append(".*");
+	            sb.append(".*");
 	        }
 
 	        StringBuilder cart = new StringBuilder();
@@ -16,7 +16,7 @@ public class CouponWinner {
 	            cart.append(str);
 	        }
 
-	        return cart.toString().matches(regex.toString()) ? 1 : 0;
+	        return cart.toString().matches(sb.toString()) ? 1 : 0;
 	    }
 	 public int isWinner(String[][] codeList, String[] shoppingCart) {
 		    int i = 0; // i points to group

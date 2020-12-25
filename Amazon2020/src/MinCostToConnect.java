@@ -121,5 +121,42 @@ public class MinCostToConnect
 	    return totalCost;
 
 	}   
+	
+	
 
 }
+
+
+/*pass all test case
+ * Amazon fullfill builder
+int sum = 0;
+
+if(intList == null || intList.size() == 0)return sum;
+
+while(intList.size() > 1){
+     Collections.sort(intList);
+     sum += add2Smallest(intList);
+ }
+return sum;
+}
+
+static int add2Smallest(List<Integer> arrList)
+{
+int arr_size = arrList.size();
+
+// There should be atleast two elements */
+/*
+if (arr_size < 2)
+{
+    return 0;
+}
+	int first = arrList.get(0);
+	int second = arrList.get(1);
+
+	arrList.add(first+second);
+	arrList.remove(0);
+	arrList.remove(0);
+	return first + second;
+
+} 
+*/
