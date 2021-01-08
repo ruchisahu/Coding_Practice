@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<list key="org.eclipse.ui.internal.wizards.datatransfer.SmartImportRootWizardPage.knownSources">
+		<item value="C:\Users\sankalpg\Coding_Practice\EPIJudge\epi_judge_java"/>
+		<item value="C:\Users\sankalpg\Coding_Practice\EPIJudge"/>
+		<item value="C:\Users\sankalpg\Coding_Practice\ObjectOrientedDesign"/>
 		<item value="C:\Users\sankalpg\Documents\Dev\Java-Battleship"/>
 	</list>
 	<section name="NewWizardAction">
