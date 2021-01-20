@@ -31,7 +31,7 @@ public class MyHashMap {
 		hashMap.get(2);            // returns 1 
 		hashMap.remove(2);          // remove the mapping for 2
 		hashMap.get(2);            // returns -1 (not found) 
-
+      
 
 	}
 

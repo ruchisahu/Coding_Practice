@@ -75,6 +75,8 @@ The use of 2-D array of size ‘N*W’.
 			int W = 50; 
 			int n = val.length; 
 			System.out.println(knapSack(W, wt, val, n)); 
+			
+			
 		} 
 	} 
 

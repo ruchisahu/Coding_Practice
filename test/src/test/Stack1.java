@@ -3,7 +3,7 @@ import java.util.ArrayDeque;
 import java.util.Deque;
 import java.util.List;
 
-public class Stack<E> {
+public class Stack1<E> {
 
      Deque<E> deque = new ArrayDeque<>();
 
@@ -32,7 +32,7 @@ public class Stack<E> {
 	public static void main(String[] args) {
 		//deque = new LinkedList<>();
         // Example
-		Stack<Integer> s=new Stack<Integer>();
+		Stack1<Integer> s=new Stack1<Integer>();
         s.push(1);
         s.push(2);
         s.push(3);

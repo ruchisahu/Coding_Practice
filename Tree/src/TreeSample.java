@@ -172,6 +172,33 @@ public class TreeSample {
 		return node0;
 		  
 	  }
+	  //[4,2,6,1,3,5,7]
+	  public static TreeNode splitTree776()	 {
+
+		  TreeNode node0 = new TreeNode( 4 );
+		  TreeNode node1 = new TreeNode( 2 );
+		  TreeNode node2 = new TreeNode( 6 );
+		  TreeNode node3 = new TreeNode( 1 );
+		  TreeNode node4 = new TreeNode( 3 );
+		  TreeNode node5 = new TreeNode( 5 );
+		  TreeNode node6 = new TreeNode( 7 );
+
+		  node0.left = node1;   
+		  node0.right = node2;   //2
+		  node1.left = node3;  //6
+		  node1.right = node4;  
+
+		  node2.right = node6;   
+		  
+		  node2.left=node5;
+		  
+
+		  
+
+		  return node0;
+
+		 }
+	  //[4,2,6,1,3,5,7]
 	  public static TreeNode createbstTree652()
 
 		 {
@@ -189,11 +216,7 @@ public class TreeSample {
 		  TreeNode node5 = new TreeNode( 4 );
 		  
 		  TreeNode node6 = new TreeNode( 4 );
-
-
-
 		  node0.left = node1;   //2
-
 		  node0.right = node2;   //3
 
 		  node1.left = node3;  //4
@@ -203,11 +226,8 @@ public class TreeSample {
 		//  node2.right = node5;   //4
 		  
 		  node4.left=node6;
-		  
-
-		  
-
-		  return node0;
+	
+ return node0;
 
 		 }
 
