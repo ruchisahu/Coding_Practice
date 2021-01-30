@@ -38,7 +38,7 @@ public class DepthFirstSearch {
 	}
 
 	public static void main(String[] args) {
-		In in = new In("C:\\Users\\sankalpg\\eclipse-workspace3\\robertSedwick\\src\\robertSedwick\\test1.txt");
+		In in = new In("C:\\Users\\sankalpg\\Coding_Practice\\robertSedwick\\src\\robertSedwick\\test1.txt");
         Graph G = new Graph(in);
         StdOut.println(G);
         int s=2;

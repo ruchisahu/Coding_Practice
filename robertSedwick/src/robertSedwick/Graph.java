@@ -160,7 +160,7 @@ public class Graph {
     }
     
     public static void main(String[] args) {
-        In in = new In("C:\\Users\\sankalpg\\eclipse-workspace3\\robertSedwick\\src\\robertSedwick\\tinyGex2.txt");
+        In in = new In("C:\\Users\\sankalpg\\Coding_Practice\\robertSedwick\\src\\robertSedwick\\tinyGex2.txt");
         Graph G = new Graph(in);
         StdOut.println(G);
         
@@ -173,6 +173,9 @@ public class Graph {
         StdOut.println("Edge between v-w ="+hasEdge(G,8,9));
         
         StdOut.println("Edge between v-w ="+hasEdge(G,0,5));
+        System.out.println("reverse:");
+        Graph G1 = new Graph(G);
+        StdOut.println(G1);
     }
 
 }
