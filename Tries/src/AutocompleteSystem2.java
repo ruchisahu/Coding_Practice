@@ -1,5 +1,5 @@
 import java.util.*;
-
+//sol2:https://www.acwing.com/file_system/file/content/whole/index/content/394432/
 public class AutocompleteSystem2 {
 	class Node {
         Node(String st, int t) {
