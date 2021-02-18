@@ -9,15 +9,9 @@ public class DijkstraSP {
     private DirectedEdge[] edgeTo;    // edgeTo[v] = last edge on shortest s->v path
     private IndexMinPQ<Double> pq;    // priority queue of vertices
 
-    /**
-     * Computes a shortest-paths tree from the source vertex {@code s} to every other
-     * vertex in the edge-weighted digraph {@code G}.
-     *
-     * @param  G the edge-weighted digraph
-     * @param  s the source vertex
-     * @throws IllegalArgumentException if an edge weight is negative
-     * @throws IllegalArgumentException unless {@code 0 <= s < V}
-     */
+ 
+    //  Computes a shortest-paths tree from the source vertex {@code s} to every other
+  
     public DijkstraSP(EdgeWeightedDigraph G, int s) {
         for (DirectedEdge e : G.edges()) {
             if (e.weight() < 0)
@@ -140,7 +134,7 @@ public class DijkstraSP {
 
   
     public static void main(String[] args) {
-    	In in = new In("C:\\Users\\sankalpg\\eclipse-workspace3\\robertSedwick\\src\\robertSedwick\\tinyEWD.txt");
+    	In in = new In("C:\\Users\\sankalpg\\Coding_Practice\\robertSedwick\\src\\robertSedwick\\tinyEWD.txt");
         EdgeWeightedDigraph G = new EdgeWeightedDigraph(in);
         int s = 0;
 

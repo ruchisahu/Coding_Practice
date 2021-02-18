@@ -57,7 +57,7 @@ public class DirectedCycle {
 	 
 	 
 	public static void main(String[] args) {
-		In in = new In("C:\\Users\\sankalpg\\eclipse-workspace3\\robertSedwick\\src\\robertSedwick\\tinyDG.txt");
+		In in = new In("C:\\Users\\sankalpg\\Coding_Practice\\robertSedwick\\src\\robertSedwick\\tinyDG.txt");
         Digraph G = new Digraph(in);
         StdOut.println(G);
 

@@ -37,7 +37,7 @@ public class Topological {
     }
 	
 	 public static void main(String[] args) {
-		 String filename  = "C:\\Users\\sankalpg\\eclipse-workspace3\\robertSedwick\\src\\robertSedwick\\routes.txt";
+		 String filename  = "C:\\Users\\sankalpg\\Coding_Practice\\robertSedwick\\src\\robertSedwick\\routes.txt";
 	        String delimiter = " ";
 	        SymbolDigraph sg = new SymbolDigraph(filename, delimiter);
 	        Topological topological = new Topological(sg.digraph());
