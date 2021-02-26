@@ -13,19 +13,12 @@ public class LazyPrimMST {
     private boolean[] marked;    // marked[v] = true iff v on tree
     private MinPQ<Edge> pq;      // edges with one endpoint in tree
 
-    /**
-     * Compute a minimum spanning tree (or forest) of an edge-weighted graph.
-     * @param G the edge-weighted graph
-     */
     public LazyPrimMST(EdgeWeightedGraph G) {
         mst = new Queue<Edge>();
         pq = new MinPQ<Edge>();
         marked = new boolean[G.vertices()];
         for (int v = 0; v < G.vertices(); v++)     // run Prim from all vertices to
             if (!marked[v]) prim(G, v);     // get a minimum spanning forest
-
-        // check optimality conditions
-       // assert check(G);
     }
 
     // run Prim's algorithm

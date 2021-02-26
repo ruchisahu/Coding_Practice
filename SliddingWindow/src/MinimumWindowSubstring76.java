@@ -2,26 +2,30 @@
 public class MinimumWindowSubstring76 {
 	 public static String minWindow(String s, String t) {
 	        if(s.isEmpty()) return "";
-	        int[] need = new int[128];
-	        for(char c : t.toCharArray()) need[c]++;
-	        char[] a = s.toCharArray();
-	        int r = 0, l = 0, missing = t.length(), i = 0, j = 0;
-	        while(r < s.length()){
-	            if(need[a[r]] > 0) missing --;
-	            need[a[r]]--;
-	            r ++;
-	            while(missing == 0){
-	                if(j == 0 || (r - l) < (j - i)){
-	                    j = r;
-	                    i = l;
-	                }
-	                need[a[l]]++;
-	                if(need[a[l]] > 0) missing++;
-	                l++;
-	            }
+	        int [] map = new int[128];
+	        for (char c : t.toCharArray()) {
+	          map[c]++;
 	        }
-	        return s.substring(i, j);
-	    }
+	        int start = 0, end = 0, minStart = 0, minLen = Integer.MAX_VALUE, counter = t.length();
+	        while (end < s.length()) {
+	          final char c1 = s.charAt(end);
+	          if (map[c1] > 0) counter--;
+	          map[c1]--;
+	          end++;
+	          while (counter == 0) {
+	            if (minLen > end - start) {
+	              minLen = end - start;
+	              minStart = start;
+	            }
+	            final char c2 = s.charAt(start);
+	            map[c2]++;
+	            if (map[c2] > 0) counter++;
+	            start++;
+	          }
+	        }
+
+	        return minLen == Integer.MAX_VALUE ? "" : s.substring(minStart, minStart + minLen);
+	 }
 	 
 	 //trying bruteforce //time limit exceed
 	 public static String minWindow1(String s, String t) {
@@ -62,9 +66,9 @@ public class MinimumWindowSubstring76 {
 		 }
 
 	public static void main(String[] args) {
-		 String s = "ADOBECODEBANC";
+		 String s = "DOBECODEBANC";
 		 String t = "ABC";
-		// System.out.println(minWindow(s,t));
+		 System.out.println(minWindow(s,t));
 		 
 		// System.out.println("test:  "+minWindow1(s,t));
 		 
@@ -75,7 +79,7 @@ public class MinimumWindowSubstring76 {
 		// "cae"
 		 String s2 = "cabwefgewcwaefgcf";
 		 String t2 = "cae";
-		 System.out.println("test:  "+minWindow1(s2,t2));  //"cwae"
+	//	 System.out.println("test:  "+minWindow1(s2,t2));  //"cwae"
 
 	}
 
