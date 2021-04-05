@@ -40,7 +40,7 @@ public class PartitionSum {
     }
  
  //sol2
- public boolean canPartition(int[] nums) {
+ public static boolean canPartition(int[] nums) {
 	    int sum = 0;
 	    
 	    for (int num : nums) {
@@ -71,9 +71,11 @@ public class PartitionSum {
     { 
         int arr[] = {3, 1, 1, 2, 2,1}; 
         int n = arr.length; 
+        System.out.println(canPartition(arr));
         if (findPartition(arr, n) == true) 
             System.out.println("Can be divided into two "+"subsets of equal sum"); 
        
+        
   
     } 
 }

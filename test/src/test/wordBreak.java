@@ -3,7 +3,7 @@ package test;
 import java.util.*;
 
 public class wordBreak {
-	public static boolean wordBreak(String s, List<String> wordDict) {
+	public static boolean wordBreak1(String s, List<String> wordDict) {
         int n=s.length();
         boolean[] check=new boolean[n+1];
         Set<String> set=new HashSet<>();
@@ -22,8 +22,29 @@ public class wordBreak {
         }
         return check[n];
     }
+	 public static boolean wordBreak(String s, List<String> wordDict) {
+	        boolean[] check =new boolean[s.length()+1];
+	        check[0]=true;
+	        
+	        for(int i=1;i<=s.length();i++){
+	            for(int j=0;j<i;j++){
+	                if(check[j] && wordDict.contains(s.substring(j,i))){
+	                    check[i]=true;
+	                    break;
+	                }
+	            }
+	        }
+	        return check[s.length()];
+	    }
 
 	public static void main(String[] args) {
+		String s11="leetcode";
+		List<String> wordDict11=new ArrayList<String>();
+		wordDict11.add("leet");
+		wordDict11.add("code");
+		wordDict11.add("lee");
+		System.out.println(wordBreak(s11, wordDict11));
+		
 		String s="aaaaaaa";
 		List<String> wordDict=new ArrayList<String>();
 		wordDict.add("aaaa");
