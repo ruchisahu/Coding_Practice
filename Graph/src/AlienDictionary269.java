@@ -26,6 +26,7 @@
 						} 
 					} 
 				}  
+				System.out.println(graph);
 				topologicalSort(graph,alpha); 
 			} 
 			 // Topological Sort of the complete graph 
@@ -115,6 +116,7 @@
 					        while (!queue.isEmpty()) {
 					            char c = queue.poll();
 					            sb.append(c);
+					            System.out.println("add :"+c);
 					            for (char neighbor : graph.get(c)) {
 					                inDegree[neighbor - 'a']--;
 					                if (inDegree[neighbor - 'a'] == 0) {
@@ -131,6 +133,7 @@
 		System.out.println(alienOrder(words));
 		
 		String[] words1 = {"caad", "aaa", "aab","abce"}; 
+		System.out.println(alienOrder(words1));
 		alienOrder(words1,5);
 
 	}

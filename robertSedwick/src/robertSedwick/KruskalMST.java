@@ -39,7 +39,7 @@ public class KruskalMST {
 	    }
 
 	public static void main(String[] args) {
-		In in = new In("C:\\Users\\sankalpg\\eclipse-workspace3\\robertSedwick\\src\\robertSedwick\\tinyEWG.txt");
+		In in = new In("C:\\Users\\sankalpg\\Coding_Practice\\robertSedwick\\src\\robertSedwick\\tinyEWG.txt");
 	        EdgeWeightedGraph G = new EdgeWeightedGraph(in);
 	        KruskalMST mst = new KruskalMST(G);
 	        for (Edge e : mst.edges()) {
