@@ -9,8 +9,9 @@ public class CountingSort {
 		int[] C=new int[k+1];
 		int[] B=new int[A.length];
 		
-		for(int i=0;i<C.length;i++)
+		/*for(int i=0;i<C.length;i++)
 			C[i]=0;
+			*/
 		
 		for(int i=0;i<A.length;i++) {
 			C[A[i]]=C[A[i]]+1;

@@ -1,4 +1,4 @@
-class UF{
+      class UF{
 		     int [] parent;
 		     int [] size;
 		     int count;
@@ -35,6 +35,9 @@ class UF{
 		        }
 		        
 		         this.count--;
+		     }
+		     public int getComponent() {
+		         return count;
 		     }
 }
 //implementation2

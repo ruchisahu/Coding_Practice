@@ -49,24 +49,50 @@ public class LCA_BST {
 	        return null;
 	    }
 	
-//sol3
-	 public TreeNode lowestCommonAncestor2(TreeNode root, TreeNode p, TreeNode q) {
-	 if (root == null || root == p || root == q) return root;
-	    TreeNode left = lowestCommonAncestor(root.left, p, q);
-	    TreeNode right = lowestCommonAncestor(root.right, p, q);
-	    if(left == null)
-	        return right; 
-	        if(right == null)
-	            return left;
-	        return root;
+//sol3 test
+	
+	    
+	 static TreeNode lca;
+
+	    public static TreeNode lowestCommonAncestor2(TreeNode root, TreeNode p,TreeNode q){
+	          lca = null;	
+	          dfs(root,  p,  q);
+			return lca;
+	  }
+
+	  public static int dfs(TreeNode node, TreeNode p, TreeNode q){
+
+		if(node == null)
+		  return 0;
+
+	    int count = 0;
+	    
+	    if(node.equals(p) || node.equals(q))
+	        count++;
+	    
+	    count+=dfs(node.left, p,q);
+	    count+=dfs(node.right, p,q);
+	      
+	      System.out.println(node.val);
+	      if(count ==2 && lca == null)
+	          lca = node;
+	      
+	      return count;
+	      
 	    }
+	
 	public static void main(String[] args) {
 		TreeNode head = TreeSample.createbstTree();
-		TreeNode left=head.left;
+		TreeNode left=head.right.right;
 		TreeNode right=head.right.left;
 		
-		 System.out.println(lowestCommonAncestor(head,left,right));
+	//	 System.out.println(lowestCommonAncestor(head,left,right));
 
+		 
+		 //test
+		 TreeNode head1 = TreeSample.createbstTree();
+		 System.out.println(lowestCommonAncestor2(head,left,right));
+		 
 	}
 
 }

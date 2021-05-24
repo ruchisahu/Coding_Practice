@@ -50,10 +50,10 @@ public class longestStrChain1048 {
 	
 	public static void main(String[] args) {
 		String[] words = {"a","b","ba","bca","bda","bdca"};
-		longestStrChain(words);
+		//longestStrChain(words);
 		
 		String[] words1 = {"xbc","pcxbcf","xb","cxbc","pcxbc"};
-		longestStrChain(words1);
+		//longestStrChain(words1);
 	}
 
 }

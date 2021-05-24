@@ -84,7 +84,7 @@ public class GraphValidTree261 {
         return false;
     }
 //sol3
-    public boolean validTree2(int n, int[][] edges) {
+    public static boolean validTree2(int n, int[][] edges) {
         if (edges.length == 0) {
             return n == 1;
         }
@@ -124,8 +124,8 @@ public class GraphValidTree261 {
 	public static void main(String[] args) {
 		
 			int n = 5;
-			int[][] edges = {{0, 1}, {1, 2}, {3, 4}};
-			System.out.println( validTree(n,edges));
+			int[][] edges = {{0, 1}, {1, 2}, {3, 4},{0,3}};
+			System.out.println( validTree2(n,edges));
 
 	}
 

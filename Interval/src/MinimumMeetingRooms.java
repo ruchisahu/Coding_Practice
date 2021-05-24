@@ -14,16 +14,13 @@ class MinimumMeetingRooms {
         Queue<Integer> queue = new PriorityQueue<>();
         queue.add(intervals.get(0).end);
         for (int i = 1; i < intervals.size()-1; i++) {
-            if (intervals.get(i).start < queue.peek()) {
-                queue.add(intervals.get(i).end);
-                max = Math.max(max, queue.size());
-                continue;
+            if (intervals.get(i).start >= queue.peek()) {
+                queue.poll();
             }
             queue.add(intervals.get(i).end);
-            while (intervals.get(i).start >= queue.peek()) queue.poll();
         }
 
-        return max;
+        return queue.size();
     }
 
     public static void main(String[] args) {
