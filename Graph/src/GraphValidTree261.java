@@ -26,7 +26,7 @@ public class GraphValidTree261 {
         int p1 = find(v1);
         int p2 = find(v2);
         
-        if (p1 == p2) {
+        if (p1 == p2) {             //check cycle
             return false;
         }
         if (size[p1] < size[p2]) {

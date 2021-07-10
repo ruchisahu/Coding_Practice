@@ -63,7 +63,11 @@ public class BasicCalculator {
 	
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+		BasicCalculator cal=new BasicCalculator();
+		String s1= "6-4/2";  //4
+		String s2="2*(5+5*2)/3+(6/2+8)";  //
+		System.out.println(cal.calculate(s1));
+		System.out.println(cal.calculate(s2));
 
 	}
 

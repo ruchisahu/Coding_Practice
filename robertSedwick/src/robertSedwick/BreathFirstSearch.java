@@ -49,7 +49,7 @@ public class BreathFirstSearch {
 		return path;
 	}
 		public static void main(String[] args) {
-			In in = new In("C:\\Users\\sankalpg\\eclipse-workspace3\\robertSedwick\\src\\robertSedwick\\tinyCG.txt");
+			In in = new In("C:\\Users\\sankalpg\\Coding_Practice\\robertSedwick\\src\\robertSedwick\\tinyCG.txt");
 	        Graph G = new Graph(in);
 	        StdOut.println(G);
 	        StdOut.println(".........");

@@ -1,3 +1,6 @@
+import java.util.ArrayList;
+import java.util.List;
+
 // one solution dfs in robertswedwick/dfsconnectedcommonent
 
 public class ConnectedComponents323 {
@@ -30,7 +33,40 @@ public class ConnectedComponents323 {
         
         return key;
     }
+//sol2
+    public int makeConnected(int n, int[][] connections) {
+		if (connections.length < n - 1)
+			return -1;
 
+		// build graph
+		List<Integer>[] graph = new ArrayList[n];
+		for (int i = 0; i < n; i++) {
+			graph[i] = new ArrayList<>();
+		}
+		for (int[] con : connections) {
+			graph[con[0]].add(con[1]);
+			graph[con[1]].add(con[0]);
+		}
+		boolean[] visited = new boolean[n];
+		int count = 0;
+		for (int i = 0; i < n; i++) {
+			if (!visited[i]) {
+				visited[i] = true;
+				dfs(graph, i, visited);
+				count++;
+			}
+		}
+		return count - 1;
+	}
+
+	private void dfs(List<Integer>[] graph, int start, boolean[] visited) {
+		List<Integer> neighbors = graph[start];
+		for (int neighbor : neighbors) {
+			if (!visited[neighbor]) {
+				visited[neighbor] = true;
+				dfs(graph, neighbor, visited);
+			}
+		}
 
 	public static void main(String[] args) {
 		int n = 5;
