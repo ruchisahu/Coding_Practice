@@ -67,6 +67,7 @@ public class ConnectedComponents323 {
 				dfs(graph, neighbor, visited);
 			}
 		}
+		}
 
 	public static void main(String[] args) {
 		int n = 5;

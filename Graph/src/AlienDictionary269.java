@@ -131,6 +131,7 @@
 	public static void main(String[] args) {
 		String[] words= {"wrt", "wrf", "er",  "ett", "rftt"};
 		System.out.println(alienOrder(words));
+	//	alienOrder(words,5);
 		
 		String[] words1 = {"caad", "aaa", "aab","abce"}; 
 		System.out.println(alienOrder(words1));

@@ -1,4 +1,5 @@
 import java.util.HashMap;
+//https://www.youtube.com/watch?v=EmOIbVN0zBE
 class Entry {
 	int value;
 	int key;

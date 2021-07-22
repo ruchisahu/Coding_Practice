@@ -72,7 +72,9 @@ public class ConnectedComponent {
 	public static void main(String[] args) {
 		 int n = 5;
 		 int[][]edges = {{0, 1}, {1, 2}, {3, 4}};
-		 System.out.println(connectedComponent(edges,n)); //return 2.
+		// System.out.println(connectedComponent(edges,n)); //return 2.
+		 ConnectedComponent c=new ConnectedComponent();
+		 System.out.println(c.countComponents(n,edges));
 		 
 		int[][] edges1 = {{0, 1}, {1, 2}, {2, 3}, {3, 4}};
 		System.out.println(connectedComponent(edges1,n)); //return 1
