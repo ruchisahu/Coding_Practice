@@ -96,7 +96,7 @@ public class DFS_detectCycle {
         return cycle;
     }
 	public static void main(String[] args) {
-		In in = new In("C:\\Users\\sankalpg\\eclipse-workspace3\\robertSedwick\\src\\robertSedwick\\test1.txt");
+		In in = new In("C:\\Users\\sankalpg\\Coding_Practice\\robertSedwick\\src\\robertSedwick\\test1.txt");
         Graph G = new Graph(in);
         DFS_detectCycle finder = new DFS_detectCycle(G);
         if (finder.hasCycle()) {
